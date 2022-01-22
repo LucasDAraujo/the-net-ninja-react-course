@@ -1,18 +1,26 @@
+import { useState } from "react";
+
 const Home = () => {
-    const handleClick = (ev) => {
-        console.log("Hello guys", ev);
+    // let name = "Mario";
+    const [name, setName] = useState("Mario");
+    const [age, setAge] = useState(5);
+    const handleClick = () => {
+        if (name === "Mario") {
+            setName("Luigi");
+        } else {
+            setName("Mario");
+        }
+        setAge(Math.round(Math.random() * 100));
     };
-    const handleClickAgain = (name, ev) => {
-        console.log(`Hello ${name}, ${ev.target}`);
-    };
+
     return (
         <div className="home">
             <h2>Homepage</h2>
+            <p>
+                {name} is {age} years old
+            </p>
+
             <button onClick={handleClick}>Click me</button>
-            {/* For calling another function with an argument, we need an anonymous function to wrap it  */}
-            <button onClick={(ev) => handleClickAgain("Mario", ev)}>
-                Click me again
-            </button>
         </div>
     );
 };
