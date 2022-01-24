@@ -1,6 +1,7 @@
 //ANCHOR  Imports
 import Navbar from "./Navbar";
 import Home from "./Home";
+import Create from "./Create";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //ANCHOR Root component
@@ -10,11 +11,14 @@ function App() {
             <div className="App">
                 <Navbar />
                 <div className="content">
-                 <Switch>
-                     <Route path="/">
-                         <Home />
-                     </Route>
-                 </Switch>
+                    <Switch>
+                        <Route exact path="/">
+                            <Home />
+                        </Route>
+                        <Route path="/create">
+                            <Create />
+                        </Route>
+                    </Switch>
                 </div>
             </div>
         </Router>
