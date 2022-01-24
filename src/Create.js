@@ -5,10 +5,16 @@ const Create = () => {
     const [body, setBody] = useState("");
     const [author, setAuthor] = useState("mario");
 
+    const handleSubmit = (ev) => {
+        ev.preventDefault();
+        const blog = { title, body, author };
+        console.log(blog)
+    };
+
     return (
         <div className="create">
             <h2>Add a new blog</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>Blog title</label>
                 <input
                     type="text"
@@ -30,12 +36,7 @@ const Create = () => {
                     <option value="mario">Mario</option>
                     <option value="yoshi">Yoshi</option>
                 </select>
-                <p>{title}</p>
-                <p>{body}</p>
-                <p>
-                    {author.substring(0, 1).toUpperCase() +
-                        author.substring(1, author.length)}
-                </p>
+                <button>Add blog</button>
             </form>
         </div>
     );
